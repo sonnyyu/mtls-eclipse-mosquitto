@@ -1,0 +1,26 @@
+networks:
+  eclipse-mosquitto:
+    driver: bridge
+services:  
+  mosquitto:
+    image: eclipse-mosquitto:2.0.14
+#    image: eclipse-mosquitto-new:latest
+    container_name: eclipse-mosquitto
+    volumes:
+#      - ./config/mosquitto-no-auth.conf:/mosquitto/config/mosquitto.conf
+      - ./config/mosquitto-mtls-auth.conf:/mosquitto/config/mosquitto.conf
+      - ./cert/ca.crt:/mosquitto/data/ca.crt
+      - ./cert/localhost.pem:/mosquitto/data/localhost.pem
+      - ./cert/localhost.key:/mosquitto/data/localhost.key
+      - data:/mosquitto/data
+      - log:/mosquitto/log
+    ports:
+#      - 1883:1883
+      - 8883:8883
+#      - 9001:9001
+    restart: unless-stopped
+    networks:
+      - eclipse-mosquitto
+volumes:
+  data:
+  log:

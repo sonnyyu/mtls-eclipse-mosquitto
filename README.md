@@ -13,7 +13,7 @@ cd ~/mtls-cert-manage/pki
 cd ~/mtls-cert-manage/pki/servercerts 
 cp * ~/mtls-eclipse-mosquitto/certs
 cd ~/mtls-cert-manage/pki/clientcerts
-cp * ~/mtls-eclipse-mosquitto/cert
+cp * ~/mtls-eclipse-mosquitto/certs
 ```
 # Getting started mosquitto with certificate
 ```bash

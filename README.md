@@ -6,12 +6,14 @@
 ```bash
 cd ~/mtls-cert-manage/pki
 ./server.sh
+./client.sh
 ```
-
 # Copy Certificate from mtls-cert-manage
 ```bash
 cd ~/mtls-cert-manage/pki/servercerts 
 cp * ~/mtls-eclipse-mosquitto/certs
+cd ~/mtls-cert-manage/pki/clientcerts
+cp * ~/mtls-eclipse-mosquitto/cert
 ```
 # Getting started mosquitto with certificate
 ```bash

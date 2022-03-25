@@ -10,7 +10,7 @@ cd ~/mtls-cert-manage/pki
 
 # Copy Certificate from mtls-cert-manage
 ```bash
-cd ~/mtls-cert-manage/servercerts 
+cd ~/mtls-cert-manage/pki/servercerts 
 cp * ~/mtls-eclipse-mosquitto/certs
 ```
 # Make PEM  for mosquitto

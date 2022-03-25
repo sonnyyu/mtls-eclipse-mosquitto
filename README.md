@@ -13,11 +13,6 @@ cd ~/mtls-cert-manage/pki
 cd ~/mtls-cert-manage/pki/servercerts 
 cp * ~/mtls-eclipse-mosquitto/certs
 ```
-# Make PEM  for mosquitto
-```bash
-cd ~/mtls-eclipse-mosquitto/cert
-openssl x509 -inform PEM -in localhost.crt > localhost.pem
-```
 # Getting started mosquitto with certificate
 ```bash
 docker-compose up -d
@@ -32,7 +27,7 @@ docker-compose down -v
 ```
 # Test mTLS
 ```bash
-cd ~/mtls-eclipse-mosquitto/cert/
+cd ~/mtls-eclipse-mosquitto/certs/
 mosquitto_sub -p 8883 --cafile ca.crt --cert client1.crt --key client1.key -h 192.168.1.204 -t msg 
 # Start a an other SSH session from the command line
 mosquitto_pub -p 8883 --cafile ca.crt --cert client1.crt --key client1.key -h 192.168.1.204 -t msg -m "test"

@@ -30,6 +30,7 @@ docker-compose down -v
 ```
 # Test mTLS
 ```bash
+sudo apt  install mosquitto-clients
 cd ~/mtls-eclipse-mosquitto/certs/
 mosquitto_sub -p 8883 --cafile ca.crt --cert client1.crt --key client1.key -h 192.168.1.204 -t msg 
 # Start a an other SSH session from the command line

@@ -1,17 +1,18 @@
 networks:
   eclipse-mosquitto:
     driver: bridge
+    name: eclipse-mosquitto
 services:  
-  mosquitto:
+  eclipse-mosquitto:
     image: eclipse-mosquitto:2.0.14
 #    image: eclipse-mosquitto-new:latest
     container_name: eclipse-mosquitto
     volumes:
 #      - ./config/mosquitto-no-auth.conf:/mosquitto/config/mosquitto.conf
       - ./config/mosquitto-mtls-auth.conf:/mosquitto/config/mosquitto.conf
-      - ./cert/ca.crt:/mosquitto/data/ca.crt
-      - ./cert/localhost.pem:/mosquitto/data/localhost.pem
-      - ./cert/localhost.key:/mosquitto/data/localhost.key
+      - ./certs/ca.crt:/mosquitto/data/ca.crt
+      - ./certs/192.168.1.204.pem:/mosquitto/data/localhost.pem
+      - ./certs/192.168.1.204.key:/mosquitto/data/localhost.key
       - data:/mosquitto/data
       - log:/mosquitto/log
     ports:
@@ -23,4 +24,6 @@ services:
       - eclipse-mosquitto
 volumes:
   data:
+    name: data
   log:
+    name: log
